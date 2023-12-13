@@ -8,6 +8,6 @@ WORKDIR /opt/webserver
 COPY main.go /opt/webserver
 RUN go build /opt/webserver/main.go && \
     mv /opt/webserver/main /opt/webserver/server
-
+COPY staticfiles /opt/webserver
 EXPOSE $SERVER_PORT:8080
 CMD [ "./server", "8080" ]
